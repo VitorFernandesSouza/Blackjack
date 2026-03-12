@@ -22,10 +22,9 @@ Artificial** durante a resolução do exercício.
 
 Exemplos de ferramentas permitidas:
 
--   ChatGPT\
--   GitHub Copilot\
--   Gemini\
--   outras ferramentas semelhantes
+-   ChatGPT
+-   Tutoriais e artigos técnicos
+-   Blogs de programação
 
 Essas ferramentas podem ser utilizadas para:
 
@@ -115,6 +114,9 @@ soma dos valores das cartas.
 Exemplo:
 
     10H + 9S = 19 pontos
+
+
+<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/34962913-6682-43dd-ba1c-3bd4832bae45" />
 
 ------------------------------------------------------------------------
 
