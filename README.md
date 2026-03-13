@@ -120,19 +120,19 @@ Exemplos:
 
   Notação   Carta
   --------- -----------------
-  7C        7 de copas
-  10O       10 de ouros
-  QE        dama de espadas
-  AP        ás de paus
+  7H        7 de copas
+  10D       10 de ouros
+  QS        dama de espadas
+  AC        ás de paus
 
 Naipes possíveis:
 
   Símbolo   Naipe
   --------- ---------
-  C         Copas
-  O         Ouros
-  P         Paus
-  E         Espadas
+  H         Copas
+  D         Ouros
+  C         Paus
+  S         Espadas
 
 ------------------------------------------------------------------------
 
