@@ -1,39 +1,28 @@
 package br.pucminas.tcc.blackjack;
 
-import java.util.Set;
-
 public class Carta {
-
-    private static final Set<Character> NAIPES_VALIDOS = Set.of('H', 'D', 'C', 'S');
 
     private final String valor;
     private final char naipe;
 
     public Carta(String notacao) {
-        if (notacao == null || notacao.length() < 2) {
-            throw new IllegalArgumentException("Notação de carta inválida");
+        if (notacao == null || notacao.isBlank() || notacao.length() < 2) {
+            throw new IllegalArgumentException("Carta inválida");
         }
 
-        this.naipe = Character.toUpperCase(notacao.charAt(notacao.length() - 1));
-        this.valor = notacao.substring(0, notacao.length() - 1).toUpperCase();
+        this.naipe = notacao.charAt(notacao.length() - 1);
+        this.valor = notacao.substring(0, notacao.length() - 1);
 
-        if (!NAIPES_VALIDOS.contains(this.naipe)) {
-            throw new IllegalArgumentException("Naipe inválido: " + this.naipe);
-        }
-
-        validarValor(this.valor);
+        validar();
     }
 
-    private void validarValor(String valor) {
-        boolean valido = valor.matches("[2-9]")
-                || valor.equals("10")
-                || valor.equals("J")
-                || valor.equals("Q")
-                || valor.equals("K")
-                || valor.equals("A");
+    private void validar() {
+        if ("COPE".indexOf(naipe) == -1) {
+            throw new IllegalArgumentException("Naipe inválido");
+        }
 
-        if (!valido) {
-            throw new IllegalArgumentException("Valor de carta inválido: " + valor);
+        if (!valor.matches("2|3|4|5|6|7|8|9|10|J|Q|K|A")) {
+            throw new IllegalArgumentException("Valor inválido");
         }
     }
 
@@ -50,6 +39,16 @@ public class Carta {
             case "J", "Q", "K" -> 10;
             case "A" -> 11;
             default -> Integer.parseInt(valor);
+        };
+    }
+
+    public String getNaipePorExtenso() {
+        return switch (naipe) {
+            case 'C' -> "Copas";
+            case 'O' -> "Ouros";
+            case 'P' -> "Paus";
+            case 'E' -> "Espadas";
+            default -> throw new IllegalArgumentException("Naipe inválido");
         };
     }
 }

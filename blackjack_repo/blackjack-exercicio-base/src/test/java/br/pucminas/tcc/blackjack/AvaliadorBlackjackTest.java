@@ -10,37 +10,37 @@ class AvaliadorBlackjackTest {
 
     @Test
     void deveInterpretarCartaNumericaCorretamente() {
-        Carta carta = new Carta("7H");
+        Carta carta = new Carta("7C");
 
         assertEquals("7", carta.getValor());
-        assertEquals('H', carta.getNaipe());
+        assertEquals('C', carta.getNaipe());
         assertEquals(7, carta.getValorNumerico());
     }
 
     @Test
     void deveInterpretarCartaDezCorretamente() {
-        Carta carta = new Carta("10D");
+        Carta carta = new Carta("10O");
 
         assertEquals("10", carta.getValor());
-        assertEquals('D', carta.getNaipe());
+        assertEquals('O', carta.getNaipe());
         assertEquals(10, carta.getValorNumerico());
     }
 
     @Test
     void figurasDevemValerDez() {
-        assertEquals(10, new Carta("JH").getValorNumerico());
-        assertEquals(10, new Carta("QD").getValorNumerico());
-        assertEquals(10, new Carta("KS").getValorNumerico());
+        assertEquals(10, new Carta("JC").getValorNumerico());
+        assertEquals(10, new Carta("QO").getValorNumerico());
+        assertEquals(10, new Carta("KE").getValorNumerico());
     }
 
     @Test
     void asDeveValerOnze() {
-        assertEquals(11, new Carta("AC").getValorNumerico());
+        assertEquals(11, new Carta("AP").getValorNumerico());
     }
 
     @Test
     void deveLancarExcecaoParaCartaInvalida() {
-        assertThrows(IllegalArgumentException.class, () -> new Carta("1H"));
+        assertThrows(IllegalArgumentException.class, () -> new Carta("1C"));
         assertThrows(IllegalArgumentException.class, () -> new Carta("10X"));
         assertThrows(IllegalArgumentException.class, () -> new Carta(""));
     }
@@ -48,9 +48,9 @@ class AvaliadorBlackjackTest {
     @Test
     void deveSomarPontuacaoDaMao() {
         Mao mao = new Mao(List.of(
-                new Carta("10H"),
-                new Carta("5D"),
-                new Carta("AC")
+                new Carta("10C"),
+                new Carta("5O"),
+                new Carta("AP")
         ));
 
         assertEquals(26, mao.pontuacao());
@@ -59,9 +59,9 @@ class AvaliadorBlackjackTest {
     @Test
     void deveDetectarQuandoAMaoEstourou() {
         Mao mao = new Mao(List.of(
-                new Carta("10H"),
-                new Carta("9D"),
-                new Carta("5C")
+                new Carta("10C"),
+                new Carta("9O"),
+                new Carta("5P")
         ));
 
         assertTrue(mao.estourou());
@@ -70,8 +70,8 @@ class AvaliadorBlackjackTest {
     @Test
     void naoDeveConsiderarEstouroQuandoPontuacaoEh21OuMenor() {
         Mao mao = new Mao(List.of(
-                new Carta("10H"),
-                new Carta("AD")
+                new Carta("10C"),
+                new Carta("AO")
         ));
 
         assertFalse(mao.estourou());
@@ -80,8 +80,8 @@ class AvaliadorBlackjackTest {
 
     @Test
     void jogadorDeveVencerQuandoTemMaiorPontuacaoSemEstourar() {
-        Mao jogador = new Mao(List.of(new Carta("10H"), new Carta("9S")));
-        Mao banca = new Mao(List.of(new Carta("8D"), new Carta("8C")));
+        Mao jogador = new Mao(List.of(new Carta("10C"), new Carta("9E")));
+        Mao banca = new Mao(List.of(new Carta("8O"), new Carta("8P")));
 
         AvaliadorBlackjack avaliador = new AvaliadorBlackjack();
 
@@ -90,8 +90,8 @@ class AvaliadorBlackjackTest {
 
     @Test
     void bancaDeveVencerQuandoJogadorEstoura() {
-        Mao jogador = new Mao(List.of(new Carta("10H"), new Carta("9S"), new Carta("5D")));
-        Mao banca = new Mao(List.of(new Carta("8D"), new Carta("8C")));
+        Mao jogador = new Mao(List.of(new Carta("10C"), new Carta("9E"), new Carta("5O")));
+        Mao banca = new Mao(List.of(new Carta("8O"), new Carta("8P")));
 
         AvaliadorBlackjack avaliador = new AvaliadorBlackjack();
 
@@ -100,8 +100,8 @@ class AvaliadorBlackjackTest {
 
     @Test
     void jogadorDeveVencerQuandoBancaEstoura() {
-        Mao jogador = new Mao(List.of(new Carta("10H"), new Carta("8S")));
-        Mao banca = new Mao(List.of(new Carta("10D"), new Carta("8C"), new Carta("5H")));
+        Mao jogador = new Mao(List.of(new Carta("10C"), new Carta("8E")));
+        Mao banca = new Mao(List.of(new Carta("10O"), new Carta("8P"), new Carta("5C")));
 
         AvaliadorBlackjack avaliador = new AvaliadorBlackjack();
 
@@ -110,8 +110,8 @@ class AvaliadorBlackjackTest {
 
     @Test
     void deveRetornarEmpateQuandoPontuacoesForemIguais() {
-        Mao jogador = new Mao(List.of(new Carta("10H"), new Carta("8S")));
-        Mao banca = new Mao(List.of(new Carta("9D"), new Carta("9C")));
+        Mao jogador = new Mao(List.of(new Carta("10C"), new Carta("8E")));
+        Mao banca = new Mao(List.of(new Carta("9O"), new Carta("9P")));
 
         AvaliadorBlackjack avaliador = new AvaliadorBlackjack();
 
@@ -120,8 +120,8 @@ class AvaliadorBlackjackTest {
 
     @Test
     void deveRetornarEmpateQuandoAmbosEstouram() {
-        Mao jogador = new Mao(List.of(new Carta("10H"), new Carta("8S"), new Carta("5D")));
-        Mao banca = new Mao(List.of(new Carta("9D"), new Carta("9C"), new Carta("8H")));
+        Mao jogador = new Mao(List.of(new Carta("10C"), new Carta("8E"), new Carta("5O")));
+        Mao banca = new Mao(List.of(new Carta("9O"), new Carta("9P"), new Carta("8C")));
 
         AvaliadorBlackjack avaliador = new AvaliadorBlackjack();
 

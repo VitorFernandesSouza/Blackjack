@@ -115,30 +115,24 @@ soma dos valores das cartas.
 Cada carta é representada por uma notação curta:
 
     VALOR + NAIPE
-    
+
+Exemplos:
+
+  Notação   Carta
+  --------- -----------------
+  7C        7 de copas
+  10O       10 de ouros
+  QE        dama de espadas
+  AP        ás de paus
+
 Naipes possíveis:
 
-| Símbolo | Naipe |
-|--------|--------|
-| H | Copas |
-| D | Ouros |
-| C | Paus |
-| S | Espadas |
-
-## Exemplos
-
-| Notação | Carta |
-|-------|----------------|
-| 7H | 7 de copas |
-| 10D | 10 de ouros |
-| QS | dama de espadas |
-| AC | ás de paus |
-
-
-    10H + 9S = 19 pontos
-
-
-<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/34962913-6682-43dd-ba1c-3bd4832bae45" />
+  Símbolo   Naipe
+  --------- ---------
+  C         Copas
+  O         Ouros
+  P         Paus
+  E         Espadas
 
 ------------------------------------------------------------------------
 
